@@ -17,5 +17,50 @@ Piirangud:
 
 SQL - Structure Query Language
 DDL - Data Definition Language - CREATE TABLE, ALTER TABLE, DROP TABLE (Поля)
-DML - Data Manipulation Language - INSERT INTO, UPDATE (Запись)
+DML - Data Manipulation Language - INSERT INTO, UPDATE, DELETE (Запись)
 
+SQL Server Management Studio
+XAMPP / phpMyAdmin
+
+
+CREATE DATABASE AndmebaasBekasov;
+
+
+USE AndmebaasBekasov;
+CREATE TABLE film(
+film_ID int PRIMARY KEY identity (1,1),
+film_Nimetus varchar(30) isnull,
+aasta int,
+eelarve_Hind decimal(7,1));
+SELECT * FROM film;
+
+--tabeli kustutamine
+DROP TABLE film;
+
+--andmete sisestamine tabelisse
+INSERT INTO film(film_Nimetus, aasta, eelarve_Hind)
+VALUES('BabyGirl', 2024, 555555.5),
+('Riply', 2024, 22000.5),
+('Barbie', 2023, 10000.7),
+('Barbie', 2023, 10000.7);
+
+DELETE FROM film WHERE filmID=6;
+
+CREATE TABLE zanr(
+zanrID int PRIMARY KEY identity(1,1),
+zanrNimetus varchar(20) UNIQUE
+)
+INSERT INTO zanr(zanrNimetus)
+VALUES ('draama'), ('detektiiv');
+SELECT * FROM zanr;
+
+--tabeli film struktuuri muutmine --> uue beergu lisamine
+ALTER TABLE film ADD zanrID int;
+SELECT * FROM film;
+-- tabeli film struktuuri muutmine --> FK lisamine mis on seotud tabeliga zanr(zanrID)
+ALTER TABLE film ADD CONSTRAINT fk_zanr
+FOREIGN KEY (zanrID) REFERENCES zanr(zanrID);
+
+SELECT * FROM film;
+SELECT * from zanr;
+UPDATE film SET zanrID=2 Where film_ID=3
