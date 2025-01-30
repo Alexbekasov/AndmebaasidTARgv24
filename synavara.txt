@@ -4,3 +4,18 @@ Andmetüüp:
 3. Loogika (bit, bool(boolean), true, false)
 4. Kuupäevad (Date,Date/Time, Time)
 
+---------------------------------------------------------------------------
+
+Piirangud:
+1.Primary Key  
+2. Foreign Key - связь с РК другой таблицы
+3. NOT NULL - Et oleks midagi kirjutatud
+4. UNIQUE - unikaalne
+5. CHECK - valik
+
+---------------------------------------------------------------------------
+
+SQL - Structure Query Language
+DDL - Data Definition Language - CREATE TABLE, ALTER TABLE, DROP TABLE (Поля)
+DML - Data Manipulation Language - INSERT INTO, UPDATE (Запись)
+
